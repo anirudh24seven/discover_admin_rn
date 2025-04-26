@@ -54,7 +54,7 @@ export default function Profile() {
   return (
     (user &&
     <View className='flex-1 justify-center items-center gap-5 p-6 bg-secondary/30'>
-      <Card className='w-full max-w-sm p-6 rounded-2xl'>
+      <Card className={`w-full max-w-sm p-6 rounded-2xl ${user.checked_in === "y" ? "border-4 border-green-500" : ""}`}>
         <CardHeader className='items-center'>
           <Avatar alt="Rick Sanchez's Avatar" className='w-24 h-24'>
             <AvatarFallback>
@@ -124,7 +124,7 @@ export default function Profile() {
           <View className='flex-row justify-around gap-3'>
             <View className='items-center'>
               <Text className='text-sm text-muted-foreground'>Checked-in</Text>
-              <Text className='text-xl font-semibold'>{user.checked_in}y</Text>
+              <Text className='text-xl font-semibold'>{user.checked_in}</Text>
             </View>
           </View>
         </CardContent>
