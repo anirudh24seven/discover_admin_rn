@@ -65,14 +65,14 @@ export default function Scanner() {
           <View className="flex-1 flex-col m-8">
             <Button
               variant='outline'
-              className="flex-1 flex-row"
+              className="flex-1 flex-row px-4 m-2"
               onPress={() => setScanned(false)}
             >
               <Text>Tap to Scan again</Text>
             </Button>
             <Button
               variant='outline'
-              className="flex-1 flex-col px-4"
+              className="flex-1 flex-col px-4 m-2"
             >
               <Text>Proceed to fetch details</Text>
               <Text className="text-center">{data}</Text>

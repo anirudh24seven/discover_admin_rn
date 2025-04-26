@@ -9,7 +9,7 @@ export function ThemeToggle() {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
 
   function toggleColorScheme() {
-    const newTheme = isDarkColorScheme ? 'light' : 'light';
+    const newTheme = isDarkColorScheme ? 'light' : 'dark';
     setColorScheme(newTheme);
     setAndroidNavigationBar(newTheme);
   }
