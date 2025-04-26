@@ -29,7 +29,7 @@ export default function Screen() {
           <Button
             variant='outline'
             className='shadow shadow-foreground/5'
-            onPress={() => router.push('/profile')}
+            onPress={() => router.push('/scanner')}
           >
             <Text>Scan QR</Text>
           </Button>
