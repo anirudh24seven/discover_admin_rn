@@ -20,6 +20,8 @@ export default function Scanner() {
   const [scanned, setScanned] = useState(false)
   const [data, setData] = useState<string | null>(null)
 
+  const router = useRouter()
+
   if (!permission) {
     // Camera permissions are still loading.
     return <View />;
@@ -73,6 +75,7 @@ export default function Scanner() {
             <Button
               variant='outline'
               className="flex-1 flex-col px-4 m-2"
+              onPress={() => router.push({ pathname: '/profile', params: { qr: data } })}
             >
               <Text>Proceed to fetch details</Text>
               <Text className="text-center">{data}</Text>
