@@ -13,6 +13,14 @@ import {
 } from '~/components/ui/card';
 import { Text } from '~/components/ui/text';
 import { useRouter } from 'expo-router';
+import axios from 'axios'
+
+export const api = axios.create({
+  baseURL: 'http://192.168.0.105:4000/api',
+  headers: {
+    Accept: 'application/json',
+  }
+})
 
 export default function Scanner() {
   const [facing, setFacing] = useState<CameraType>('back');
@@ -56,7 +64,22 @@ export default function Scanner() {
   const handleBarCodeScanned = (scanningResult) => {
     setScanned(true)
     setData(scanningResult["data"])
-    alert(`Scanned ${scanningResult["data"]}`)
+  }
+
+  const buttonPressed = (qr) => {
+    console.log("qr buttonPressed", qr)
+    api.get(`/qr/${qr}`)
+      .then(response => {
+        console.log("response", response);
+        const fetchedUser = response.data.user
+        if (fetchedUser) {
+          console.log("user: ", fetchedUser)
+          router.push({ pathname: '/profile', params: { stringUser: JSON.stringify(fetchedUser) } })
+        }
+      })
+      .catch(error => {
+        console.error("error", error);
+      })
   }
 
   return (
@@ -75,7 +98,7 @@ export default function Scanner() {
             <Button
               variant='outline'
               className="flex-1 flex-col px-4 m-2"
-              onPress={() => router.push({ pathname: '/profile', params: { qr: data } })}
+              onPress={() => buttonPressed(data)}
             >
               <Text>Proceed to fetch details</Text>
               <Text className="text-center">{data}</Text>

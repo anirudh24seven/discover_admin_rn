@@ -17,7 +17,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip
 import { useLocalSearchParams } from 'expo-router';
 
 export default function Profile() {
-  const { qr } = useLocalSearchParams();
+  const { stringUser } = useLocalSearchParams();
+  const user = JSON.parse(stringUser);
+  console.log("Profile user", user)
 
   type User = {
       first_name: string
@@ -49,104 +51,8 @@ export default function Profile() {
       checked_in: string
     }
 
-    const users: User[] = [
-      {
-        first_name: "Anirudh",
-        last_name: "Sundararaman",
-        name_to_be_displayed_in_id_card: "Anirudh Sundararaman",
-        email: "1@gmail.com",
-        mobile: "9876543211",
-        ticket_type: "Early Bird",
-        member_id: "",
-        club_name: "Meraki Toastmasters (E5)",
-        division: "E",
-        food_preference: "Veg",
-        vehicle_type: "Others",
-        attending_district_conference_for_first_time: "No",
-        need_accommodation: "No",
-        five_ten_names_group_offer: "",
-        payment_type: "I'll pay the full amount: Rs. 4999",
-        payment_screenshot: "https://files.elfsightcdn.com/10f57fcd-29bb-4da4-9c09-61ea49a5bf6e/87ddc2f2-3b60-4a95-9b27-ae16a69f0ce1/1000065767.jpg",
-        date_of_registration: "2024-12-28 17:35:41",
-        amount_paid: "4999",
-        payment_verified: "y",
-        amount_in_words: "",
-        unique_id: "8917a6db-0902-440e-b0ca-38192ba7b3d6",
-        barcode: "",
-        barcode_drive_link: "https://drive.google.com/file/d/1OyPJb4N4sf1cmZfS1ouhE7gj1J48TzLd/view?usp=drivesdk",
-        receipt_no: "2024-2025/2101",
-        pdf_receipt: "https://drive.google.com/file/d/1kAu2PhSJ38xUvTtVZGpp96953_TEYKrF/view?usp=drivesdk",
-        ack_email_sent: "y",
-        checked_in: "",
-      },
-      {
-        first_name: "Bharath",
-        last_name: "Raja",
-        name_to_be_displayed_in_id_card: "Bharath Raja",
-        email: "2@gmail.com",
-        mobile: "9876543212",
-        ticket_type: "Early Bird",
-        member_id: "6636119",
-        club_name: "Chennai Speakers Forum (A4)",
-        division: "A",
-        food_preference: "Veg",
-        vehicle_type: "4 Wheeler",
-        attending_district_conference_for_first_time: "No",
-        need_accommodation: "No",
-        five_ten_names_group_offer: "",
-        payment_type: "I'll pay the full amount: Rs. 4999",
-        payment_screenshot: "https://files.elfsightcdn.com/10f57fcd-29bb-4da4-9c09-61ea49a5bf6e/95da57ef-1531-44e7-9a1a-6e7b981e7734/WhatsApp-Image-2024-12-28-at-23-08-40.jpg",
-        date_of_registration: "2024-12-28 17:39:16",
-        amount_paid: "4999",
-        payment_verified: "y",
-        amount_in_words: "",
-        unique_id: "5027212f-c129-4863-bf20-36024863c111",
-        barcode: "",
-        barcode_drive_link: "https://drive.google.com/file/d/1RcFEekO7pOromXeq8IDQYp1LSJO5j7Ww/view?usp=drivesdk",
-        receipt_no: "2024-2025/2102",
-        pdf_receipt: "https://drive.google.com/file/d/1-MmuLIub8TylF_4ZKZjIv5Qrp0StVxw1/view?usp=drivesdk",
-        ack_email_sent: "y",
-        checked_in: "",
-      },
-      {
-        first_name: "Abdul",
-        last_name: "Hadi",
-        name_to_be_displayed_in_id_card: "Abdul Hadi",
-        email: "3@gmail.com",
-        mobile: "9876543213",
-        ticket_type: "Early Bird",
-        member_id: "",
-        club_name: "Paypal Chennai Toastmasters (B4)",
-        division: "B",
-        food_preference: "Non-Veg",
-        vehicle_type: "4 Wheeler",
-        attending_district_conference_for_first_time: "No",
-        need_accommodation: "No",
-        five_ten_names_group_offer: "",
-        payment_type: "I'll pay the full amount: Rs. 4999",
-        payment_screenshot: "https://files.elfsightcdn.com/10f57fcd-29bb-4da4-9c09-61ea49a5bf6e/9c182ead-07c0-4243-8a8f-0fd547a7b8f2/IMG_4103F3D69A63-1.jpg",
-        date_of_registration: "2024-12-28 17:43:45",
-        amount_paid: "4999",
-        payment_verified: "y",
-        amount_in_words: "",
-        unique_id: "8d5f3682-fb3e-4dbf-8563-1df45685665a",
-        barcode: "",
-        barcode_drive_link: "https://drive.google.com/file/d/1uWRi--uOKKrkYnSlRA9ns3cgITqSbnD9/view?usp=drivesdk",
-        receipt_no: "2024-2025/2103",
-        pdf_receipt: "https://drive.google.com/file/d/1Leav-zD_Zd25eo2jw99vidDRiIrn6Nl6/view?usp=drivesdk",
-        ack_email_sent: "y",
-        checked_in: "",
-      },
-  ]
-
-  let user = users.find((user) => user["unique_id"] === qr)
-  if (user) {
-    console.log("user: ", user)
-  } else {
-    console.log("No user")
-  }
-
   return (
+    (user &&
     <View className='flex-1 justify-center items-center gap-5 p-6 bg-secondary/30'>
       <Card className='w-full max-w-sm p-6 rounded-2xl'>
         <CardHeader className='items-center'>
@@ -234,5 +140,6 @@ export default function Profile() {
         </CardFooter>
       </Card>
     </View>
+  )
   );
 }
