@@ -4,7 +4,7 @@ import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from '@react-navigation
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
@@ -49,13 +49,20 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+    <ThemeProvider value={isDarkColorScheme ? LIGHT_THEME : LIGHT_THEME}>
+      <StatusBar style={isDarkColorScheme ? 'light' : 'light'} />
       <Stack>
         <Stack.Screen
           name='index'
           options={{
-            title: 'Starter Base',
+            title: 'Home',
+            headerRight: () => <ThemeToggle />,
+          }}
+        />
+        <Stack.Screen
+          name='profile'
+          options={{
+            title: 'Profile',
             headerRight: () => <ThemeToggle />,
           }}
         />

@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import Animated, { FadeInUp, FadeOutDown, LayoutAnimationConfig } from 'react-native-reanimated';
-import { Info } from '~/lib/icons/Info';
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
 import { Button } from '~/components/ui/button';
 import {
   Card,
@@ -12,11 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from '~/components/ui/card';
-import { Progress } from '~/components/ui/progress';
 import { Text } from '~/components/ui/text';
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/tooltip';
+import { useRouter } from 'expo-router';
 
 export default function Screen() {
+  const router = useRouter()
+
   return (
     <View className='flex-1 justify-center items-center gap-5 p-6 bg-secondary/30'>
       <Card className='w-full max-w-sm p-6 rounded-2xl'>
@@ -31,6 +29,7 @@ export default function Screen() {
           <Button
             variant='outline'
             className='shadow shadow-foreground/5'
+            onPress={() => router.push('/profile')}
           >
             <Text>Scan QR</Text>
           </Button>
