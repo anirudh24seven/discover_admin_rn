@@ -78,6 +78,10 @@ export default function Profile() {
               <Text className='text-sm text-muted-foreground'>Mobile</Text>
               <Text className='text-xl font-semibold'>{user.mobile}</Text>
             </View>
+          </View>
+        </CardContent>
+        <CardContent>
+          <View className='flex-row justify-around gap-3'>
             <View className='items-center'>
               <Text className='text-sm text-muted-foreground'>Email</Text>
               <Text className='text-xl font-semibold'>{user.email}</Text>
