@@ -49,28 +49,25 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+    <ThemeProvider value={isDarkColorScheme ? LIGHT_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'dark' : 'light'} />
       <Stack>
         <Stack.Screen
           name='index'
           options={{
             title: 'Home',
-            headerRight: () => <ThemeToggle />,
           }}
         />
         <Stack.Screen
           name='scanner'
           options={{
             title: 'Scanner',
-            headerRight: () => <ThemeToggle />,
           }}
         />
         <Stack.Screen
           name='profile'
           options={{
             title: 'Profile',
-            headerRight: () => <ThemeToggle />,
           }}
         />
       </Stack>

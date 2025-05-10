@@ -16,7 +16,7 @@ import { useRouter } from 'expo-router';
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'http://13.233.51.248:4000/api',
+  baseURL: 'http://35.154.49.171:4000/api',
   headers: {
     Accept: 'application/json',
   }
