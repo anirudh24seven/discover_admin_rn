@@ -96,8 +96,8 @@ export default function Scanner() {
               <Text>Tap to Scan again</Text>
             </Button>
             <Button
-              variant='outline'
-              className="flex-1 flex-col px-4 m-2"
+              variant='default'
+              className="flex-1 flex-col px-4 m-2 bg-secondary"
               onPress={() => buttonPressed(data)}
             >
               <Text>Proceed to fetch details</Text>

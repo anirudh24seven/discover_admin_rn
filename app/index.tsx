@@ -17,18 +17,17 @@ export default function Screen() {
 
   return (
     <View className='flex-1 justify-center items-center gap-5 p-6 bg-secondary/30'>
-      <Card className='w-full max-w-sm p-6 rounded-2xl'>
+      <Card className='w-full max-w-sm p-6 rounded-2xl bg-primary shadow shadow-foreground/5'>
         <CardHeader className='items-center'>
           <View className='p-3' />
-          <CardTitle className='pb-2 text-center'>Discover '25 Admin</CardTitle>
+          <CardTitle className='pb-2 text-center text-primary-foreground'>Scan & Check-in</CardTitle>
         </CardHeader>
         <CardContent>
-          <Text className='text-sm text-muted-foreground'>Use this app check-in Discover '25 attendees</Text>
+          <Text className='text-sm text-primary-foreground text-center'>Click below to check-in attendees</Text>
         </CardContent>
         <CardFooter className='flex-col gap-3 pb-0'>
           <Button
-            variant='outline'
-            className='shadow shadow-foreground/5'
+            variant='secondary'
             onPress={() => router.push('/scanner')}
           >
             <Text>Scan QR</Text>

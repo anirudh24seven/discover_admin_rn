@@ -55,7 +55,7 @@ export default function RootLayout() {
         <Stack.Screen
           name='index'
           options={{
-            title: 'Home',
+            title: 'Discover \'25 Admin',
           }}
         />
         <Stack.Screen
