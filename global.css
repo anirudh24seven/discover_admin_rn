@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --primary: #004165;
+    --primary: #4F1067;
     --primary-foreground: #FFFFFF;
-    --secondary: #772432;
+    --secondary: #EC167F;
     --secondary-foreground: #FFFFFF;
     --destructive: #CD202C;
     --destructive-foreground: #FFFFFF;
@@ -28,9 +28,9 @@
   }
 
   .dark:root {
-    --primary: #004165;
+    --primary: #4F1067;
     --primary-foreground: #FFFFFF;
-    --secondary: #772432;
+    --secondary: #EC167F;
     --secondary-foreground: #FFFFFF;
     --destructive: #CD202C;
     --destructive-foreground: #FFFFFF;
