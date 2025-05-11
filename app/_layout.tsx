@@ -4,7 +4,7 @@ import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from '@react-navigation
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { Platform, View } from 'react-native';
+import { Image, Platform, View } from 'react-native';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
@@ -55,7 +55,13 @@ export default function RootLayout() {
         <Stack.Screen
           name='index'
           options={{
-            title: 'Discover \'25 Admin',
+            headerTitle: () => (
+              <Image
+                source={require('../assets/images/logo.png')}
+                className="h-[40px] -ml-6"
+                style={{ resizeMode: 'contain' }}
+              />
+            )
           }}
         />
         <Stack.Screen
