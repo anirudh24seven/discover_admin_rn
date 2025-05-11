@@ -27,59 +27,38 @@ import Animated, {
 
 export default function Screen() {
   const router = useRouter()
-  const scale1 = useSharedValue(1)
-  const scale2 = useSharedValue(1)
+  const scale = useSharedValue(1)
   const duration = 60
+  const scaleTo = 0.96
 
-  const animatedStyle1 = useAnimatedStyle(() => ({
-    transform: [{ scale: scale1.value }],
-  }))
-
-  const animatedStyle2 = useAnimatedStyle(() => ({
-    transform: [{ scale: scale2.value }],
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
   }))
 
   return (
     <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
       <View className='p-6 mb-8'>
-        <Image
-          source={require('../assets/images/100_years_logo.png')}
-          className="w-full h-[240px]"
-          style={{ resizeMode: 'contain' }}
-        />
-        <Text
-          className="text-center mt-4 mb-2 font-semibold text-xl"
-        >
-          May 23, 24, 25 2025
-        </Text>
-        <GradientText
-          colors={['#461066', '#8E0966']}
-          text="Annual Conference of District 120"
-          className="text-3xl font-bold text-center mx-8"
-        />
-
         <Pressable
           onPressIn={() => {
-            scale1.value = withTiming(0.96, { duration })
+            scale.value = withTiming(scaleTo, { duration })
           }}
           onPressOut={() => {
-            scale1.value = withTiming(1, { duration })
+            scale.value = withTiming(1, { duration })
           }}
           onPress={() => router.push('/keynote_speakers')}
         >
-          <Animated.View style={animatedStyle1}>
+          <Animated.View style={animatedStyle}>
             <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
-              <CardHeader className='items-center bg-[#40cbb4] rounded-t-xl'>
-                <Sparkles className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+              <CardHeader className='items-center bg-[#ffc20b] rounded-t-xl'>
                 <CardTitle className='text-center text-primary-foreground'>
-                  Keynote Speakers
+                  Humorous Speech Contest
                 </CardTitle>
               </CardHeader>
               <CardContent>
               </CardContent>
               <CardFooter>
                 <Text>
-                  Click to view details about renowned speakers at Discover '25
+                  Click to view details about the Humorous Speech Contest
                 </Text>
               </CardFooter>
             </Card>
@@ -88,26 +67,25 @@ export default function Screen() {
 
         <Pressable
           onPressIn={() => {
-            scale2.value = withTiming(0.96, { duration })
+            scale.value = withTiming(scaleTo, { duration })
           }}
           onPressOut={() => {
-            scale2.value = withTiming(1, { duration })
+            scale.value = withTiming(1, { duration })
           }}
-          onPress={() => router.push('/speech_contests')}
+          onPress={() => router.push('/keynote_speakers')}
         >
-          <Animated.View style={animatedStyle2}>
+          <Animated.View style={animatedStyle}>
             <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
               <CardHeader className='items-center bg-[#e6275a] rounded-t-xl'>
-                <Theater className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
                 <CardTitle className='text-center text-primary-foreground'>
-                  Speech Contests
+                  Evaluation Contest
                 </CardTitle>
               </CardHeader>
               <CardContent>
               </CardContent>
               <CardFooter>
                 <Text>
-                  Click to know about the thrilling competitions showcasing contestants' eloquence
+                  Click to view details about the Evaluation Contest
                 </Text>
               </CardFooter>
             </Card>
@@ -116,52 +94,33 @@ export default function Screen() {
 
         <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
           <CardHeader className='items-center bg-[#4c35a9] rounded-t-xl'>
-            <Trophy className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
             <CardTitle className='text-center text-primary-foreground'>
-              Awards and Recognition
+              International Speech Contest
             </CardTitle>
           </CardHeader>
           <CardContent>
           </CardContent>
           <CardFooter>
             <Text>
-              Celebrate exceptional achievements and contributions
+              Click to view details about the International Speech Contest
             </Text>
           </CardFooter>
         </Card>
 
         <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
           <CardHeader className='items-center bg-[#40cbb4] rounded-t-xl'>
-            <Handshake className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
             <CardTitle className='text-center text-primary-foreground'>
-              Networking
+              Table Topics Contest
             </CardTitle>
           </CardHeader>
           <CardContent>
           </CardContent>
           <CardFooter>
             <Text>
-              Connect with professionals and build valuable relationships
+              Click to view details about the Table Topics Contest
             </Text>
           </CardFooter>
         </Card>
-
-        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
-          <CardHeader className='items-center bg-[#e6275a] rounded-t-xl'>
-            <PartyPopper className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
-            <CardTitle className='text-center text-primary-foreground'>
-              Fun Night
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-          </CardContent>
-          <CardFooter>
-            <Text>
-              Enjoy a thrilling experience with camaraderie
-            </Text>
-          </CardFooter>
-        </Card>
-
       </View>
     </ScrollView>
   );
