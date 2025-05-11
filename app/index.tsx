@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { Image, View, ScrollView } from 'react-native';
 import { Button } from '~/components/ui/button';
 import {
   Card,
@@ -11,29 +11,117 @@ import {
 } from '~/components/ui/card';
 import { Text } from '~/components/ui/text';
 import { useRouter } from 'expo-router';
+import { GradientText } from '~/components/ui/GradientText'
+
+import { Handshake } from '~/lib/icons/Handshake';
+import { PartyPopper } from '~/lib/icons/PartyPopper';
+import { Theater } from '~/lib/icons/Theater';
+import { Trophy } from '~/lib/icons/Trophy';
+import { Sparkles } from '~/lib/icons/Sparkles';
 
 export default function Screen() {
   const router = useRouter()
 
   return (
-    <View className='flex-1 justify-center items-center gap-5 p-6 bg-secondary/30'>
-      <Card className='w-full max-w-sm p-6 rounded-2xl bg-primary shadow shadow-foreground/5'>
-        <CardHeader className='items-center'>
-          <View className='p-3' />
-          <CardTitle className='pb-2 text-center text-primary-foreground'>Scan & Check-in</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Text className='text-sm text-primary-foreground text-center'>Click below to check-in attendees</Text>
-        </CardContent>
-        <CardFooter className='flex-col gap-3 pb-0'>
-          <Button
-            variant='secondary'
-            onPress={() => router.push('/scanner')}
-          >
-            <Text>Scan QR</Text>
-          </Button>
-        </CardFooter>
-      </Card>
-    </View>
+    <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
+      <View className='p-6 mb-8'>
+        <Image
+          source={require('../assets/images/100_years_logo.png')}
+          className="w-full h-[240px]"
+          style={{ resizeMode: 'contain' }}
+        />
+        <Text
+          className="text-center mt-4 mb-2 font-semibold text-xl"
+        >
+          May 23, 24, 25 2025
+        </Text>
+        <GradientText
+          colors={['#461066', '#8E0966']}
+          text="Annual Conference of District 120"
+          className="text-3xl font-bold text-center mx-8"
+        />
+
+        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
+          <CardHeader className='items-center bg-[#40cbb4] rounded-t-xl'>
+            <Sparkles className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+            <CardTitle className='text-center text-primary-foreground'>
+              Keynote Speakers
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          </CardContent>
+          <CardFooter>
+            <Text>
+              Click to view details about renowned speakers at Discover '25
+            </Text>
+          </CardFooter>
+        </Card>
+
+        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
+          <CardHeader className='items-center bg-[#e6275a] rounded-t-xl'>
+            <Theater className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+            <CardTitle className='text-center text-primary-foreground'>
+              Speech Contests
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          </CardContent>
+          <CardFooter>
+            <Text>
+              Click to know about the thrilling competitions showcasing contestants' eloquence
+            </Text>
+          </CardFooter>
+        </Card>
+
+        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
+          <CardHeader className='items-center bg-[#4c35a9] rounded-t-xl'>
+            <Trophy className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+            <CardTitle className='text-center text-primary-foreground'>
+              Awards and Recognition
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          </CardContent>
+          <CardFooter>
+            <Text>
+              Celebrate exceptional achievements and contributions
+            </Text>
+          </CardFooter>
+        </Card>
+
+        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
+          <CardHeader className='items-center bg-[#40cbb4] rounded-t-xl'>
+            <Handshake className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+            <CardTitle className='text-center text-primary-foreground'>
+              Networking
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          </CardContent>
+          <CardFooter>
+            <Text>
+              Connect with professionals and build valuable relationships
+            </Text>
+          </CardFooter>
+        </Card>
+
+        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto`}>
+          <CardHeader className='items-center bg-[#e6275a] rounded-t-xl'>
+            <PartyPopper className='text-primary-foreground mb-2' size={24} strokeWidth={1.25} />
+            <CardTitle className='text-center text-primary-foreground'>
+              Fun Night
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+          </CardContent>
+          <CardFooter>
+            <Text>
+              Enjoy a thrilling experience with camaraderie
+            </Text>
+          </CardFooter>
+        </Card>
+
+      </View>
+    </ScrollView>
   );
 }

@@ -13,6 +13,7 @@
     "postinstall": "npx tailwindcss -i ./global.css -o ./node_modules/.cache/nativewind/global.css"
   },
   "dependencies": {
+    "@react-native-masked-view/masked-view": "^0.3.2",
     "@react-navigation/native": "^7.0.0",
     "@rn-primitives/avatar": "~1.1.0",
     "@rn-primitives/portal": "~1.1.0",
@@ -25,6 +26,7 @@
     "clsx": "^2.1.0",
     "expo": "^53.0.8",
     "expo-camera": "~16.1.6",
+    "expo-linear-gradient": "^14.1.4",
     "expo-linking": "~7.1.4",
     "expo-navigation-bar": "~4.2.4",
     "expo-router": "~5.0.6",
