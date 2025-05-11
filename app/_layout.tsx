@@ -71,6 +71,36 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name='speech_contests'
+          options={{
+            title: 'Speech Contests',
+          }}
+        />
+        <Stack.Screen
+          name='humorous_speech_contest'
+          options={{
+            title: 'Humorous Speech Contest',
+          }}
+        />
+        <Stack.Screen
+          name='evaluation_speech_contest'
+          options={{
+            title: 'Evaluation Speech Contest',
+          }}
+        />
+        <Stack.Screen
+          name='international_speech_contest'
+          options={{
+            title: 'International Speech Contest',
+          }}
+        />
+        <Stack.Screen
+          name='table_topics_contest'
+          options={{
+            title: 'Table Topics Contest',
+          }}
+        />
+        <Stack.Screen
           name='scanner'
           options={{
             title: 'QR Scanner',
