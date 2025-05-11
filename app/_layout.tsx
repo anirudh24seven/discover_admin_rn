@@ -65,6 +65,12 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name='keynote_speakers'
+          options={{
+            title: 'Keynote Speakers',
+          }}
+        />
+        <Stack.Screen
           name='scanner'
           options={{
             title: 'QR Scanner',
