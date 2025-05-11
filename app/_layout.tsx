@@ -67,13 +67,13 @@ export default function RootLayout() {
         <Stack.Screen
           name='scanner'
           options={{
-            title: 'Scanner',
+            title: 'QR Scanner',
           }}
         />
         <Stack.Screen
           name='profile'
           options={{
-            title: 'Profile',
+            title: 'Attendee Profile',
           }}
         />
       </Stack>
