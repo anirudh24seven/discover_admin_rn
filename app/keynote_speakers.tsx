@@ -17,9 +17,9 @@ export default function Screen() {
   const router = useRouter()
 
   return (
-    <ScrollView className="flex-1 pb-32" contentContainerStyle={{ flexGrow: 1 }}>
+    <ScrollView className="flex-1 pb-8">
       <View className='p-6 mb-20'>
-        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto overflow-hidden`}>
+        <Card className={`w-full rounded-2xl mt-8 mx-auto overflow-hidden`}>
           <View className="aspect-square overflow-hidden">
             <Image 
               source={require('../assets/images/luisa_montalvo.jpeg')}
@@ -29,7 +29,7 @@ export default function Screen() {
           </View>
         </Card>
 
-        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto overflow-hidden`}>
+        <Card className={`w-full rounded-2xl mt-8 mx-auto overflow-hidden`}>
           <View className="aspect-square overflow-hidden">
             <Image 
               source={require('../assets/images/ptr.jpeg')}
@@ -39,7 +39,7 @@ export default function Screen() {
           </View>
         </Card>
 
-        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto overflow-hidden`}>
+        <Card className={`w-full rounded-2xl mt-8 mx-auto overflow-hidden`}>
           <View className="aspect-square overflow-hidden">
             <Image 
               source={require('../assets/images/fursey_gotuaco.jpeg')}
@@ -49,7 +49,7 @@ export default function Screen() {
           </View>
         </Card>
 
-        <Card className={`w-full max-w-sm rounded-2xl mt-8 mx-auto overflow-hidden`}>
+        <Card className={`w-full rounded-2xl mt-8 mx-auto overflow-hidden`}>
           <View className="aspect-square overflow-hidden">
             <Image 
               source={require('../assets/images/deepa_venkat.jpeg')}

@@ -44,7 +44,7 @@ export default function Screen() {
       <View className='p-6 mb-8'>
         <Image
           source={require('../assets/images/100_years_logo.png')}
-          className="w-full h-[240px]"
+          className="w-full max-w-[200px] max-h-[240px] mx-auto"
           style={{ resizeMode: 'contain' }}
         />
         <Text
