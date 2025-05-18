@@ -18,7 +18,7 @@ import { useLocalSearchParams } from 'expo-router';
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'http://35.154.49.171:4000/api',
+  baseURL: 'http://192.168.128.76:4000/api',
   headers: {
     Accept: 'application/json',
   }
@@ -27,7 +27,6 @@ export const api = axios.create({
 export default function Profile() {
   const { stringUser } = useLocalSearchParams();
   const [user, setUser] = React.useState<User | null>(() => JSON.parse(stringUser));
-  console.log("Profile user", user)
 
   type User = {
       first_name: string
@@ -60,7 +59,7 @@ export default function Profile() {
     }
 
   const buttonPressed = () => {
-    console.log("check-in buttonPressed", user.qr)
+    console.log("check-in buttonPressed", user.unique_id)
 
     const updatedUser = {
       ...user,
@@ -69,24 +68,24 @@ export default function Profile() {
 
     setUser(updatedUser)
     
-    // api.get(`/check-in/${qr}`)
-    //   .then(response => {
-    //     console.log("response", response);
-    //     const fetchedUser = response.data.user
-    //     if (fetchedUser) {
-    //       console.log("user: ", fetchedUser)
-    //       setUser(fetchedUser)
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.error("error", error);
-    //   })
+    api.post(`/check_in/${user.unique_id}`)
+      .then(response => {
+        // console.log("response", response);
+        const fetchedUser = response.data.user
+        if (fetchedUser) {
+          // console.log("user: ", fetchedUser)
+          setUser(fetchedUser)
+        }
+      })
+      .catch(error => {
+        console.error("error", error);
+      })
   }
 
   return (
     (user &&
     <View className='flex-1 justify-center items-center gap-5 px-6 bg-secondary/30'>
-      <Card className={`w-full max-w-sm mx-6 rounded-2xl ${user.checked_in === true ? "border-4 border-green-500" : ""}`}>
+      <Card className={`w-full max-w-sm mx-6 rounded-2xl ${user.checked_in === 'y' ? "border-8 border-green-500" : ""}`}>
         <CardHeader className='items-center bg-primary rounded-t-xl'>
           <Text className='text-primary-foreground'>Division</Text>
           <Avatar alt="Avatar" className='w-24 h-24'>
@@ -113,23 +112,31 @@ export default function Profile() {
         <CardContent>
           <View className='flex-row justify-around gap-3'>
             <View className='items-center'>
+              <Text className='text-sm text-muted-foreground'>Payment type</Text>
+              <Text className='text-xl font-semibold'>{user.payment_type}</Text>
+            </View>
+          </View>
+        </CardContent>
+        <CardContent>
+          <View className='flex-row justify-around gap-3'>
+            <View className='items-center'>
               <Text className='text-sm text-muted-foreground'>Checked-in</Text>
-              <Text className={`text-xl font-semibold ${user.checked_in ? "text-green-500" : ""}`}>
-                {user.checked_in === true ? 'Yes' : 'No'}
+              <Text className={`text-xl font-semibold ${user.checked_in === 'y' ? "text-green-500" : ""}`}>
+                {user.checked_in === 'y' ? 'Yes' : 'No'}
               </Text>
             </View>
           </View>
         </CardContent>
-        {user.checked_in ? <></> :
+        {user.payment_verified !== 'y' || user.checked_in === 'y' ? <></> :
           <CardFooter className='flex-col gap-3 pb-4'>
             <View />
-            <Button
-              variant='outline'
-              className='shadow shadow-foreground/5'
-              onPress={buttonPressed}
-            >
-              <Text>Check-in</Text>
-            </Button>
+              <Button
+                variant='outline'
+                className='shadow shadow-foreground/5'
+                onPress={buttonPressed}
+              >
+                <Text>Check-in</Text>
+              </Button>
           </CardFooter>
         }
       </Card>
